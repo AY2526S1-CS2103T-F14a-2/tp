@@ -51,7 +51,7 @@ public class LogicManager implements Logic {
         commandResult = command.execute(model);
 
         try {
-            storage.saveCandidateList(model.getAddressBook());
+            storage.saveCandidateList(model.getCandidateList());
         } catch (AccessDeniedException e) {
             throw new CommandException(String.format(FILE_OPS_PERMISSION_ERROR_FORMAT, e.getMessage()), e);
         } catch (IOException ioe) {
@@ -62,8 +62,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ReadOnlyFindr getAddressBook() {
-        return model.getAddressBook();
+    public ReadOnlyFindr getCandidateList() {
+        return model.getCandidateList();
     }
 
     @Override
